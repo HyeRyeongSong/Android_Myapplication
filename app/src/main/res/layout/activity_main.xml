@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--RealativeLayout으로 쓰기-->
+<!--여러 종류의 레이아웃 중 원하는 것 가져다 쓰기 쉬움-->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,16 +13,42 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.hyeryeongsong.my_application.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"/>
-    
     <Button
-        android:id="@+id/btn1"
+        android:id="@+id/bt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hungry!!!"
-        android:textColor="#ffffffff"
-        android:onClick="Func"/>
+        android:text="Button1"
+        android:textSize="30dp"
+        android:textColor="#fa0307"
+        android:onClick="bt1_clicked"/>
+
+    <Button
+        android:layout_below="@+id/bt1"
+        android:id="@+id/bt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button2"
+        android:textSize="30dp"
+        android:textColor="#02fa2f"
+        android:onClick="bt2_clicked"/>
+
+    <Button
+        android:layout_below="@+id/bt2"
+        android:id="@+id/bt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button3"
+        android:textSize="30dp"
+        android:textColor="#031cfa"
+        android:onClick="bt3_clicked"/>
+
+    <TextView
+        android:layout_below="@+id/bt3"
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bt3 clicked"
+        android:textSize="30dp"
+        android:textColor="#031cfa"/>
+
 </RelativeLayout>
