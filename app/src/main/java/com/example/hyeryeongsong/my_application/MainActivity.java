@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
@@ -79,7 +80,20 @@ public class MainActivity extends AppCompatActivity
         startActivity(new Intent(this, bt3_Activity.class));
 
         textView.setTextColor(0xff0000ff);
+    }
 
+    void Go_Clicked(View v)
+    {
+        EditText et = (EditText)findViewById(R.id.t_edit);
+        String str = et.getText().toString();
+
+        //{"words" : "~~~(str)~~~"}
+        //"words"라는 tag를 떼주는 function을 go_Activity에서 해줌
+        Intent intent = new Intent(this, go_Activity.class);
+
+        intent.putExtra("words", str);
+
+        startActivity(intent);
     }
 
 }

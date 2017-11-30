@@ -19,6 +19,7 @@
         <activity android:name=".bt1_Activity"/> <!-- 이 문장 추가해주기-->
         <activity android:name=".bt2_Activity"/> <!-- 이 문장 추가해주기-->
         <activity android:name=".bt3_Activity"/> <!-- 이 문장 추가해주기-->
+        <activity android:name=".go_Activity"/> <!-- 이 문장 추가해주기-->
 
     </application>
 

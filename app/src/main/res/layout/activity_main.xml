@@ -51,4 +51,20 @@
         android:textSize="30dp"
         android:textColor="#031cfa"/>
 
+    <EditText
+        android:id="@+id/t_edit"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        android:hint = "input 8words"
+        android:textSize="18dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        android:layout_toRightOf="@+id/t_edit"
+        android:text="G0"
+        android:onClick="Go_Clicked"/>
+
 </RelativeLayout>
