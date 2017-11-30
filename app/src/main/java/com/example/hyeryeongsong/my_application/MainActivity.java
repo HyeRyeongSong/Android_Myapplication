@@ -20,32 +20,66 @@ public class MainActivity extends AppCompatActivity
         TextView textView;
         textView = (TextView) findViewById(R.id.text);
 
+        textView.setText("bt1 clicked");
+        textView.setTextColor(0xFFFF0000);
+
+        //button1을 누르면 bt1_Activity 파일로 넘어가게 해주는 코드
+        //Input parameter
+
+        //Intent intent = new Intent(A, B)
+        //startActivity(intent)
+        //이렇게 두 줄로 써도 됨
+
+        //Intent(A, B) --> A:context, B:class
+
+        startActivity(new Intent(this, bt1_Activity.class));
+
         textView.setTextColor(0xffff0000);
     }
-
-    //button1을 누르면 bt1_Activity 파일로 넘어가게 해주는 코드
-    //Input parameter
-
-    //Intent intent = new Intent(A, B)
-    //startActivity(intent)
-    //이렇게 두 줄로 써도 됨
-
-    //Intent(A, B) --> A:context, B:class
-    startActivity(new Intent(this, bt1_Activity.class));
 
     void bt2_clicked(View v)
     {
         TextView textView;
         textView = (TextView) findViewById(R.id.text);
 
+        textView.setText("bt2 clicked");
+        textView.setTextColor(0xFFFF0000);
+
+        //button2을 누르면 bt2_Activity 파일로 넘어가게 해주는 코드
+        //Input parameter
+
+        //Intent intent = new Intent(A, B)
+        //startActivity(intent)
+        //이렇게 두 줄로 써도 됨
+
+        //Intent(A, B) --> A:context, B:class
+
+        startActivity(new Intent(this, bt2_Activity.class));
+
         textView.setTextColor(0xff00ff00);
+
     }
     void bt3_clicked(View v)
     {
         TextView textView;
         textView = (TextView) findViewById(R.id.text);
 
+        textView.setText("bt3 clicked");
+        textView.setTextColor(0xFF0000FF);
+
+        //button3을 누르면 bt3_Activity 파일로 넘어가게 해주는 코드
+        //Input parameter
+
+        //Intent intent = new Intent(A, B)
+        //startActivity(intent)
+        //이렇게 두 줄로 써도 됨
+
+        //Intent(A, B) --> A:context, B:class
+
+        startActivity(new Intent(this, bt3_Activity.class));
+
         textView.setTextColor(0xff0000ff);
+
     }
 
 }
