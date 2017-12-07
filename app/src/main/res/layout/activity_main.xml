@@ -42,29 +42,29 @@
         android:textColor="#031cfa"
         android:onClick="bt3_clicked"/>
 
-    <TextView
-        android:layout_below="@+id/bt3"
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="bt3 clicked"
-        android:textSize="30dp"
-        android:textColor="#031cfa"/>
+    <View
+        android:id="@+id/box"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:background="#FF000000"
+        android:layout_below="@+id/bt3"/>
 
     <EditText
         android:id="@+id/t_edit"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
+        android:layout_below="@+id/box"
         android:hint = "input 8words"
         android:textSize="18dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
+        android:layout_below="@+id/box"
         android:layout_toRightOf="@+id/t_edit"
         android:text="G0"
         android:onClick="Go_Clicked"/>
+
 
 </RelativeLayout>

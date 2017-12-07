@@ -1,85 +1,103 @@
 package com.example.hyeryeongsong.my_application;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
+    final int RED = 1;
+    final int GREEN = 2;
+    final int BLUE = 3;
+
+    int R_value;
+    int G_value;
+    int B_value;
+
+    View check_box;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        check_box = (View)findViewById(R.id.box);
+
+        R_value = 0;
+        G_value = 0;
+        B_value = 0;
     }
 
     void bt1_clicked(View v)
     {
-        TextView textView;
-        textView = (TextView) findViewById(R.id.text);
+        Intent intent = new Intent(this, bt1_Activity.class);
 
-        textView.setText("bt1 clicked");
-        textView.setTextColor(0xFFFF0000);
+        intent.putExtra("RED", Integer.toString(R_value));
+        intent.putExtra("GREEN", Integer.toString(G_value));
+        intent.putExtra("BLUE", Integer.toString(B_value));
 
-        //button1을 누르면 bt1_Activity 파일로 넘어가게 해주는 코드
-        //Input parameter
-
-        //Intent intent = new Intent(A, B)
-        //startActivity(intent)
-        //이렇게 두 줄로 써도 됨
-
-        //Intent(A, B) --> A:context, B:class
-
-        startActivity(new Intent(this, bt1_Activity.class));
-
-        textView.setTextColor(0xffff0000);
+        startActivityForResult(intent, RED);
     }
 
     void bt2_clicked(View v)
     {
-        TextView textView;
-        textView = (TextView) findViewById(R.id.text);
+        Intent intent = new Intent(this, bt2_Activity.class);
 
-        textView.setText("bt2 clicked");
-        textView.setTextColor(0xFFFF0000);
+        intent.putExtra("RED", Integer.toString(R_value));
+        intent.putExtra("GREEN", Integer.toString(G_value));
+        intent.putExtra("BLUE", Integer.toString(B_value));
 
-        //button2을 누르면 bt2_Activity 파일로 넘어가게 해주는 코드
-        //Input parameter
-
-        //Intent intent = new Intent(A, B)
-        //startActivity(intent)
-        //이렇게 두 줄로 써도 됨
-
-        //Intent(A, B) --> A:context, B:class
-
-        startActivity(new Intent(this, bt2_Activity.class));
-
-        textView.setTextColor(0xff00ff00);
-
+        startActivityForResult(intent, GREEN);
     }
     void bt3_clicked(View v)
     {
-        TextView textView;
-        textView = (TextView) findViewById(R.id.text);
+        Intent intent = new Intent(this, bt3_Activity.class);
 
-        textView.setText("bt3 clicked");
-        textView.setTextColor(0xFF0000FF);
+        intent.putExtra("RED", Integer.toString(R_value));
+        intent.putExtra("GREEN", Integer.toString(G_value));
+        intent.putExtra("BLUE", Integer.toString(B_value));
 
-        //button3을 누르면 bt3_Activity 파일로 넘어가게 해주는 코드
-        //Input parameter
+        startActivityForResult(intent, BLUE);
+    }
 
-        //Intent intent = new Intent(A, B)
-        //startActivity(intent)
-        //이렇게 두 줄로 써도 됨
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if(resultCode == Activity.RESULT_OK)
+        {
+            switch(requestCode)
+            {
+                case RED:
+                    Log.d("color", "R_Num2 : " + data.getStringExtra("RED"));
+                    R_value = Integer.parseInt(data.getStringExtra("RED"));
+                    check_box.setBackgroundColor(Color.rgb(R_value, G_value, B_value));
+                    break;
 
-        //Intent(A, B) --> A:context, B:class
+                case GREEN:
+                    Log.d("color", "G_Num2 : " + data.getStringExtra("GREEN"));
+                    G_value = Integer.parseInt(data.getStringExtra("GREEN"));
+                    check_box.setBackgroundColor(Color.rgb(R_value, G_value, B_value));
+                    break;
 
-        startActivity(new Intent(this, bt3_Activity.class));
+                case BLUE:
+                    Log.d("color", "B_Num2 : " + data.getStringExtra("BLUE"));
+                    B_value = Integer.parseInt(data.getStringExtra("BLUE"));
+                    check_box.setBackgroundColor(Color.rgb(R_value, G_value, B_value));
+                    break;
+            }
+        }
 
-        textView.setTextColor(0xff0000ff);
+        if(resultCode == Activity.RESULT_CANCELED)
+        {
+            Toast.makeText(this, "Activity finished with no return value", Toast.LENGTH_SHORT).show();
+        }
     }
 
     void Go_Clicked(View v)
