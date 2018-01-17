@@ -20,16 +20,12 @@ public class MainActivity extends AppCompatActivity
     int G_value;
     int B_value;
 
-    View check_box;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        check_box = (View)findViewById(R.id.box);
-
+        
         R_value = 0;
         G_value = 0;
         B_value = 0;
@@ -67,38 +63,6 @@ public class MainActivity extends AppCompatActivity
         startActivityForResult(intent, BLUE);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        if(resultCode == Activity.RESULT_OK)
-        {
-            switch(requestCode)
-            {
-                case RED:
-                    Log.d("color", "R_Num2 : " + data.getStringExtra("RED"));
-                    R_value = Integer.parseInt(data.getStringExtra("RED"));
-                    check_box.setBackgroundColor(Color.rgb(R_value, G_value, B_value));
-                    break;
-
-                case GREEN:
-                    Log.d("color", "G_Num2 : " + data.getStringExtra("GREEN"));
-                    G_value = Integer.parseInt(data.getStringExtra("GREEN"));
-                    check_box.setBackgroundColor(Color.rgb(R_value, G_value, B_value));
-                    break;
-
-                case BLUE:
-                    Log.d("color", "B_Num2 : " + data.getStringExtra("BLUE"));
-                    B_value = Integer.parseInt(data.getStringExtra("BLUE"));
-                    check_box.setBackgroundColor(Color.rgb(R_value, G_value, B_value));
-                    break;
-            }
-        }
-
-        if(resultCode == Activity.RESULT_CANCELED)
-        {
-            Toast.makeText(this, "Activity finished with no return value", Toast.LENGTH_SHORT).show();
-        }
-    }
 
     void Go_Clicked(View v)
     {
