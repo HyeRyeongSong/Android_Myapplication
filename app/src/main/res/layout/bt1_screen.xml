@@ -13,46 +13,56 @@
         android:stretchMode="columnWidth"
         android:layout_centerInParent="true">
 
-        <View
-            android:id="@+id/t_frame1"
+        <Button
+            android:id="@+id/btn11"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_margin="20dp"
-            android:background="#0000ff"/>
+            android:background="#0000ff"
+            android:onClick="RB11_clicked"/>
 
-        <View
-            android:id="@+id/t_frame2"
+        <Button
+            android:id="@+id/btn12"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_margin="20dp"
-            android:background="#0000ff"/>
+            android:background="#0000ff"
+            android:onClick="RB12_clicked"/>
 
-        <View
-            android:id="@+id/t_frame3"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_margin="20dp"
-            android:background="#0000ff"/>
 
-        <View
-            android:id="@+id/t_frame4"
+        <Button
+            android:id="@+id/btn21"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_margin="20dp"
-            android:background="#0000ff"/>
+            android:background="#0000ff"
+            android:onClick="RB21_clicked"/>
 
-        <View
-            android:id="@+id/t_frame5"
+
+        <Button
+            android:id="@+id/t_btn22"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_margin="20dp"
-            android:background="#0000ff"/>
-        <View
-            android:id="@+id/t_frame6"
+            android:background="#0000ff"
+            android:onClick="RB22_clicked"/>
+
+
+        <Button
+            android:id="@+id/btn31"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_margin="20dp"
-            android:background="#0000ff"/>
+            android:background="#0000ff"
+            android:onClick="RB31_clicked"/>
+        <Button
+            android:id="@+id/btn32"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="20dp"
+            android:background="#0000ff"
+            android:onClick="RB32_clicked"/>
+
 
 
     </GridLayout>

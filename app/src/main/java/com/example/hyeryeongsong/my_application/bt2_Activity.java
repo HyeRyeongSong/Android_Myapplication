@@ -2,12 +2,8 @@ package com.example.hyeryeongsong.my_application;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
 
 /**
  * Created by HyeRyeongSong on 2017. 11. 30..
@@ -15,78 +11,65 @@ import android.widget.Toast;
 
 public class bt2_Activity extends Activity
 {
-    EditText editText;
-    int R_value;
-    int G_value;
-    int B_value;
+    int seatNum; //for sending info about state of seat with the seat number
+    int num; //for getting seat number from previous Activity
 
-    View tmp_view;
-
-    boolean valid = false;
-
-
-    //extends Activity에 있는 거 가져다가 쓰는 것이므로 @Override 꼭 써줘야 함
-    //안 그러면 충돌남
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bt2_screen);
 
-        editText = (EditText)findViewById(R.id.Edit_G_value);
-
         Intent intent = getIntent();
+        num = intent.getIntExtra("num",-1);
 
-        R_value = Integer.parseInt(intent.getStringExtra("RED"));
-        G_value = Integer.parseInt(intent.getStringExtra("GREEN"));
-        B_value = Integer.parseInt(intent.getStringExtra("BLUE"));
+        if(num < 0)
+            finish();
 
-        tmp_view = (View)findViewById(R.id.t_frame);
-        tmp_view.setBackgroundColor(Color.rgb(R_value, G_value, B_value));
+        seatNum = NtoSN(num);
 
+        if(seatNum < 0)
+            finish();
     }
 
-    public void apply_b_clicked(View v)
-    {
-        G_value = Integer.parseInt(editText.getText().toString());
+    //reserve
+    public void ok_b_clicked(View v) {
+        seatNum += 10;
 
-        if(G_value>=0 && G_value<=255)
-        {
-            tmp_view.setBackgroundColor(Color.rgb(R_value, G_value, B_value));
-            valid = true;
-        }
-        else
-        {
-            Toast.makeText(this, "G value should be in the range (1 ~ 255)", Toast.LENGTH_SHORT).show();
-            valid = false;
-        }
-
-        editText.setText("");
-    }
-
-
-    @Override
-    public void onBackPressed()
-    {
-        ;
-    }
-
-    public void active1_back_clicked(View v)
-    {
         Intent returnIntent = new Intent();
+        returnIntent.putExtra("seatNum",seatNum);
+        setResult(Activity.RESULT_OK,returnIntent);
 
-        if(valid)
-        {
-            returnIntent.putExtra("GREEN", Integer.toString(G_value));
+        finish();
+    }
 
-            Log.d("color", "G_Num1 : " + G_value);
+    //not reserve
+    public void cancel_b_clicked(View v) {
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra("seatNum",seatNum);
+        setResult(Activity.RESULT_OK,returnIntent);
 
-            setResult(Activity.RESULT_OK, returnIntent);
-            super.onBackPressed();
+        finish();
+    }
+
+    //There are 2 valuable : num & seatNum
+    //change the format from num to seatNum
+    public int NtoSN(int num) {
+        switch (num) {
+            case 11:
+                return 0;
+            case 12:
+                return 1;
+            case 21:
+                return 2;
+            case 22:
+                return 3;
+            case 31:
+                return 4;
+            case 32:
+                return 5;
         }
-        else
-        {
-            Toast.makeText(this, "You should set valid 'G' value!", Toast.LENGTH_SHORT).show();
-        }
+
+        //-1 mean error
+        return -1;
     }
 }
