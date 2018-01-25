@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <View
+        android:id="@+id/t_frame"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_margin="20dp"
+        android:background="#FF0000FF" />
+
+    <EditText
+        android:id="@+id/Edit_B_value"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:inputType="number"
+        android:hint="0~255"
+        android:textSize="15dp"
+        android:layout_below="@+id/t_frame"/>
+
+    <Button
+        android:id="@+id/apply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apply"
+        android:layout_margin="20dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/t_frame"
+        android:layout_toRightOf="@+id/Edit_B_value"
+        android:onClick="apply_b_clicked"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="back"
+        android:textSize="20dp"
+        android:layout_margin="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="active1_back_clicked"/>
+
+</RelativeLayout>
