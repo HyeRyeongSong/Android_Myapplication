@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Created by HyeRyeongSong on 2017. 11. 23..
  */
 
-public class bt1_Activity extends Activity
+public class f extends Activity
 {
     //define valuables for this Activity
     ArrayList<Integer> reserve;
