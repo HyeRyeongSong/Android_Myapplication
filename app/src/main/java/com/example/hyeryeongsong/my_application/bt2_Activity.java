@@ -15,7 +15,10 @@ import android.widget.Toast;
 
 public class bt2_Activity extends Activity
 {
+    DBHandler controller;
+
     EditText editText;
+
     int R_value;
     int G_value;
     int B_value;
@@ -34,6 +37,8 @@ public class bt2_Activity extends Activity
         setContentView(R.layout.bt2_screen);
 
         editText = (EditText)findViewById(R.id.Edit_G_value);
+
+        controller = new DBHandler(getApplicationContext());
 
         Intent intent = getIntent();
 
@@ -71,7 +76,7 @@ public class bt2_Activity extends Activity
         ;
     }
 
-    public void active1_back_clicked(View v)
+    public void active2_back_clicked(View v)
     {
         Intent returnIntent = new Intent();
 
@@ -80,6 +85,8 @@ public class bt2_Activity extends Activity
             returnIntent.putExtra("GREEN", Integer.toString(G_value));
 
             Log.d("color", "G_Num1 : " + G_value);
+
+            controller.update_G(111,G_value);
 
             setResult(Activity.RESULT_OK, returnIntent);
             super.onBackPressed();

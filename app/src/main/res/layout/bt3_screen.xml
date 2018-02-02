@@ -39,6 +39,6 @@
         android:layout_margin="20dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:onClick="active1_back_clicked"/>
+        android:onClick="active3_back_clicked"/>
 
 </RelativeLayout>
